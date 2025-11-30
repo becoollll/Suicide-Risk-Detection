@@ -1,0 +1,14 @@
+# .gitignore
+# Ignore Data
+data/
+*.csv
+*.pkl
+*.json
+
+# Ignore System Files
+.DS_Store
+__pycache__/
+*.pyc
+
+# Ignore Jupyter Checkpoints
+.ipynb_checkpoints/
