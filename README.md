@@ -35,8 +35,8 @@ Suicide-Risk-Detection/
 
 ## 🚀 Getting Started
 1. **Prerequisites**
-   - Python 3.8+
-   - PyTorch (MPS supported for Mac M-series, CUDA for NVIDIA)
+   - **Python 3.11** (Recommended for best performance on Apple Silicon)
+   - **PyTorch 2.2+** (Required for MPS acceleration on Mac)
    - Transformers
 2. **Install Dependencies**
    ```bash
