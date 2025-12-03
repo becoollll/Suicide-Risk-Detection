@@ -7,3 +7,5 @@ transformers>=4.36.0
 xgboost>=2.0.0
 matplotlib>=3.8.0
 jupyter>=1.0.0
+textblob>=0.17.1
+empath>=0.89

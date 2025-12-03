@@ -7,7 +7,8 @@ This project aims to assess suicide risk on social media by prioritizing the ord
 This project implements four distinct approaches to evaluate the effectiveness of ordinal regression and time-aware modeling in suicide risk assessment.
 
 ### The 4 Approaches
-1.  **Baseline ML:** XGBoost with TF-IDF and LIWC features.
+1.  **Baseline ML:** XGBoost with TF-IDF and Psycholinguistic features (TextBlob + Empath).
+    * *Note: Replaced proprietary LIWC with open-source alternatives to ensure reproducibility.*
 2.  **Baseline DL:** DeBERTa Transformer trained with standard Cross-Entropy Loss.
 3.  **Ordinal Model (SISMO-based):** DeBERTa + BiLSTM + Ordinal Loss (based on Sawhney et al.).
 4.  **Time-Aware Ordinal Model:** Enhancing Approach 3 with explicit timestamp features from the RSD-15K dataset.
