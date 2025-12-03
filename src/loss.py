@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 class OrdinalLoss(nn.Module):
     """
-    Ordinal Regression Loss based on SISMO paper [cite: 407]
+    Ordinal Regression Loss based on SISMO paper
     Cost function: phi(r_t, r_i) = alpha * |r_t - r_i|
     """
     def __init__(self, alpha=1.5, num_classes=4, device='cpu'):
