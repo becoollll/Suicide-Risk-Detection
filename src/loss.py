@@ -22,9 +22,21 @@ class OrdinalLoss(nn.Module):
 
     def forward(self, logits, targets):
         """
-        logits: model raw outputs (batch_size, num_classes)
-        targets: true labels (batch_size)
+        logits: (B, C)
+        targets: (B,)
         """
-        # TODO: Implement the ordinal loss calculation using the cost matrix
-        # Main logic: compute Soft Labels -> Cross Entropy
-        pass
+        # Convert logits to probabilities
+        probs = F.softmax(logits, dim=1)  # (B, C)
+
+        # Cost vectors per sample: φ(target, i) = |target - i|
+        # shape: (B, C)
+        cost_vec = self.cost_matrix[targets]  
+
+        # Soft labels: exp(-alpha * |t - i|)
+        soft_labels = torch.exp(-self.alpha * cost_vec)
+        soft_labels = soft_labels / soft_labels.sum(dim=1, keepdim=True)
+
+        # Cross entropy with soft labels
+        loss = torch.sum(-soft_labels * torch.log(probs + 1e-12), dim=1)
+
+        return loss.mean()
