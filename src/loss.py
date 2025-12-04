@@ -7,8 +7,14 @@ class OrdinalLoss(nn.Module):
     Ordinal Regression Loss based on SISMO paper
     Cost function: phi(r_t, r_i) = alpha * |r_t - r_i|
     """
+    
     def __init__(self, alpha=1.5, num_classes=4, device='cpu'):
         super(OrdinalLoss, self).__init__()
+
+        if torch.backends.mps.is_available():
+            device = torch.device("mps")
+            print("Using MPS (Apple Silicon GPU)")
+        
         self.alpha = alpha
         self.num_classes = num_classes
         self.device = device
