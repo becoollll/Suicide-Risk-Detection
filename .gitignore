@@ -12,3 +12,8 @@ __pycache__/
 
 # Ignore Jupyter Checkpoints
 .ipynb_checkpoints/
+
+# Ignore Deep Learning Model Files
+models/
+*.bin
+*.pth
